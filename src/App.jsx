@@ -5,7 +5,7 @@ import SupplierDetails from './components/SupplierDetails';
 import suppliers from './data/suppliers';
 
 function App() {
-  const [selectedSupplier, setSelectedSupplier] = useState(suppliers[0]);
+  const [selectedSupplier, setSelectedSupplier] = useState(null);
 
   return (
     <div className="flex h-screen w-screen bg-gray-100">
