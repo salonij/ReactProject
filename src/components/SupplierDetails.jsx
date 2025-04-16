@@ -6,6 +6,7 @@ import {
   faMapMarkerAlt,
   faUsers
 } from '@fortawesome/free-solid-svg-icons';
+import OverviewTab from './tabs/OverviewTab';
 
 export default function SupplierDetails({ supplier }) {
     const [activeTab, setActiveTab] = useState('Overview');
@@ -56,14 +57,7 @@ export default function SupplierDetails({ supplier }) {
         </div>
 
         <div className="text-gray-700 text-sm min-h-[150px] transition-all duration-200">
-          {activeTab === 'Overview' && (
-            <div className="space-y-3 text-sm leading-6 text-gray-800">
-              <p><strong>Status:</strong> {supplier.overview.status}</p>
-              <p><strong>Website:</strong> <a href={supplier.overview.website} className="text-blue-600" target="_blank" rel="noopener noreferrer">{supplier.overview.website}</a></p>
-              <p><strong>Founded:</strong> {supplier.overview.founded}</p>
-              <p><strong>Industry:</strong> {supplier.overview.industry}</p>
-            </div>
-          )}
+          {activeTab === 'Overview' && <OverviewTab supplier={supplier} />}
 
           {activeTab === 'Book of Business' && (
             <div className="space-y-3 text-sm leading-6 text-gray-800">
