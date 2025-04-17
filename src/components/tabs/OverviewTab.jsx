@@ -31,7 +31,7 @@ const OverviewTab = ({ supplier }) => {
         <h2 className="font-semibold text-lg">Company Profile</h2>
         <button
           onClick={editMode ? handleSave : toggleEdit}
-          className="flex items-center gap-1 text-blue-600 hover:underline"
+          className="text-xs text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-md px-3 py-1 font-medium shadow-sm transition flex items-center gap-x-1"
         >
           <FontAwesomeIcon icon={editMode ? faSave : faPen} />
           {editMode ? "Save" : "Edit"}
@@ -97,6 +97,53 @@ const OverviewTab = ({ supplier }) => {
           )}
         </div>
       </div>
+      <div className="mt-8">
+            <h3 className="text-lg font-semibold mb-3">LightSource Teams</h3>
+            {supplier.lightSourceTeams?.length > 0 ? (
+            <div className="space-y-2">
+            {supplier.lightSourceTeams.map((team) => (
+                <div
+                key={team.id}
+                className="flex items-center justify-between bg-gray-50 p-3 rounded-lg border"
+                >
+                <div className="flex items-center space-x-3">
+                    <div className="w-10 h-10 bg-blue-100 text-blue-600 font-semibold rounded-full flex items-center justify-center uppercase">
+                    {team.name.slice(0, 2)}
+                    </div>
+                    <div>
+                    <p className="font-medium">{team.name}</p>
+                    <p className="text-sm text-gray-500">{team.tag}</p>
+                    </div>
+                </div>
+                </div>
+            ))}
+            </div>
+            ) : (
+                <p className="text-gray-500 text-sm">No teams linked to this supplier.</p>
+            )}
+        </div>
+        <div className="mt-8">
+            <div className="flex justify-between items-center mb-2">
+                <h3 className="text-lg font-semibold">Custom properties</h3>
+                <button className="text-xs text-blue-600 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-md px-3 py-1 font-medium shadow-sm transition">
+                    Edit properties
+                </button>
+            </div>
+            {supplier.customProperties && Object.keys(supplier.customProperties).length > 0 ? (
+                <div className="space-y-2">
+                {Object.entries(supplier.customProperties).map(([key, value]) => (
+                    <div key={key} className="flex justify-between text-sm">
+                    <strong>{key}</strong>
+                    <span className="text-gray-800">{value}</span>
+                    </div>
+                ))}
+                </div>
+            ) : (
+                <div className="text-gray-500 text-sm border border-dashed border-gray-300 p-4 rounded-lg">
+                Your team hasn't added any properties for this company.
+                </div>
+            )}
+        </div>
     </div>
   );
 };

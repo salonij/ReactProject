@@ -36,7 +36,18 @@ const suppliers = [
           role: "Support",
           email: "john@xsupplies.com"
         }
-      ]
+      ],
+      lightSourceTeams: [
+        { 
+            id: 1, 
+            name: "acme 3", 
+            tag: "#acme-3" 
+        }
+      ],
+      customProperties: {
+        "Company Size": "500+",
+        "Specialties": "Logistics, Freight",
+      }
     },
     {
       id: 2,
@@ -71,7 +82,12 @@ const suppliers = [
           role: "Support",
           email: "alan@ytraders.io"
         }
-      ]
+      ],
+      lightSourceTeams: [],
+      customProperties: {
+        "Company Size": "1000+",
+        "Specialties": "Machinery",
+      }
     },
     {
       id: 3,
@@ -110,7 +126,16 @@ const suppliers = [
           role: "Support",
           email: "joe@zdist.com"
         }
-      ]
+      ],
+      lightSourceTeams: [
+        { 
+            id: 2, 
+            name: "test 4", 
+            tag: "#test-4" 
+        }
+      ],
+      customProperties: {
+      }
     }
   ];
   
